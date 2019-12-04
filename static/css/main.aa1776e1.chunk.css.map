@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss","Nav.module.scss"],"names":[],"mappings":"AAAA,KACE,qBAAsB,CAGxB,iBAGE,kBAAmB,CCPrB,sBACE,WAAY","file":"main.aa1776e1.chunk.css","sourcesContent":["html {\n  box-sizing: border-box;\n}\n\n*,\n*::before,\n*::after {\n  box-sizing: inherit;\n}\n",".navActive {\n  color: green;\n}\n"]}
