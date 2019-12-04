@@ -14,7 +14,7 @@ class MovieDetailsPage extends Component {
   };
 
   static propTypes = {
-    type: PropTypes.string.isRequired,
+    type: PropTypes.string,
   };
 
   componentDidMount() {
@@ -27,23 +27,29 @@ class MovieDetailsPage extends Component {
     const { movie } = this.state;
     return (
       <div>
-        <Link to="/">
-          <button type="button">Go Back</button>
-        </Link>
-        <MovieDetail {...movie} />
-        <hr />
-        <div>Additional information</div>
-        <ul>
-          <li>
-            <Link to={`/movies/${movie.id}/cast`}>Cast</Link>
-          </li>
-          <li>
-            <Link to={`/movies/${movie.id}/reviews`}>Reviews</Link>
-          </li>
-        </ul>
-        <hr />
-        {type === 'cast' && <Cast movieId={movie.id} />}
-        {type === 'reviews' && <Reviews movieId={movie.id} />}
+        {movie ? (
+          <div>
+            <Link to="/">
+              <button type="button">Go Back</button>
+            </Link>
+            <MovieDetail {...movie} />
+            <hr />
+            <div>Additional information</div>
+            <ul>
+              <li>
+                <Link to={`/movies/${movie.id}/cast`}>Cast</Link>
+              </li>
+              <li>
+                <Link to={`/movies/${movie.id}/reviews`}>Reviews</Link>
+              </li>
+            </ul>
+            <hr />
+            {type === 'cast' && <Cast movieId={movie.id} />}
+            {type === 'reviews' && <Reviews movieId={movie.id} />}
+          </div>
+        ) : (
+          <p>Nothing Found</p>
+        )}
       </div>
     );
   }
